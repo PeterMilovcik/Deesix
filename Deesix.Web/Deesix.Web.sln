@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deesix.Web", "Deesix.Web.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deesix.Test", "..\Deesix.Test\Deesix.Test.csproj", "{6CAFF1E4-EA91-4D63-AAA2-EC752D63448D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deesix.Domain", "..\Deesix.Domain\Deesix.Domain.csproj", "{2CDE935E-249B-4662-9C7A-396C4692448F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6CAFF1E4-EA91-4D63-AAA2-EC752D63448D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CAFF1E4-EA91-4D63-AAA2-EC752D63448D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CAFF1E4-EA91-4D63-AAA2-EC752D63448D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDE935E-249B-4662-9C7A-396C4692448F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CDE935E-249B-4662-9C7A-396C4692448F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CDE935E-249B-4662-9C7A-396C4692448F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CDE935E-249B-4662-9C7A-396C4692448F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

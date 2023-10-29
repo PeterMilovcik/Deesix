@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Deesix.Web\Deesix.Web.csproj" />
+    <ProjectReference Include="..\Deesix.Domain\Deesix.Domain.csproj" />
   </ItemGroup>
 
 </Project>
