@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Deesix.Web\Deesix.Web.csproj" />
     <ProjectReference Include="..\Deesix.Domain\Deesix.Domain.csproj" />
+    <ProjectReference Include="..\Deesix.GameMechanics\Deesix.GameMechanics.csproj" />
   </ItemGroup>
 
 </Project>
