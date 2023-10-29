@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -21,6 +21,11 @@
     <ProjectReference Include="..\Deesix.Web\Deesix.Web.csproj" />
     <ProjectReference Include="..\Deesix.Domain\Deesix.Domain.csproj" />
     <ProjectReference Include="..\Deesix.GameMechanics\Deesix.GameMechanics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GameMechanics\" />
+    <Folder Include="Web\" />
   </ItemGroup>
 
 </Project>
