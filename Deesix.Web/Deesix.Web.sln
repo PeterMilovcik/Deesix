@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deesix.Test", "..\Deesix.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deesix.Domain", "..\Deesix.Domain\Deesix.Domain.csproj", "{2CDE935E-249B-4662-9C7A-396C4692448F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deesix.GameMechanics", "..\Deesix.GameMechanics\Deesix.GameMechanics.csproj", "{45026D02-4F13-431D-AAA0-D74528C58EC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2CDE935E-249B-4662-9C7A-396C4692448F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CDE935E-249B-4662-9C7A-396C4692448F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CDE935E-249B-4662-9C7A-396C4692448F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45026D02-4F13-431D-AAA0-D74528C58EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45026D02-4F13-431D-AAA0-D74528C58EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45026D02-4F13-431D-AAA0-D74528C58EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45026D02-4F13-431D-AAA0-D74528C58EC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
