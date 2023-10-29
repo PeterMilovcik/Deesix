@@ -1,0 +1,38 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <h1><a class="navbar-brand" [routerLink]="['/']">Deesix</a></h1>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }">
+        <ul role="menu-bar">
+          <li role="menu-item" tabindex="0" aria-haspopup="true">
+            Game
+            <ul role="menu">
+              <li role="menu-item"><a [routerLink]="['/']">Home</a></li>
+              <li role="menu-item"><a [routerLink]="['/new-game']">New game</a></li>
+              <li role="menu-item"><a [routerLink]="['/counter']">Counter</a></li>
+              <li role="menu-item"><a [routerLink]="['/fetch-data']">Fetch Data</a></li>
+              <li role="menu-item" class="divider"><a href="#menu">Something else here</a></li>
+              <li role="menu-item"><a href="https://twitter.com/sakofchit">sakun's twitter</a></li>
+            </ul>
+          </li>
+        </ul>
+        <app-login-menu></app-login-menu>
+      </div>
+    </div>
+  </nav>
+</header>

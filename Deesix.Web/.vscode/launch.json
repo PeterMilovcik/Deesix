@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "coreclr",
+            "request": "launch",
+            "name": "Launch .NET Core Backend",
+            "program": "${workspaceFolder}/bin/Debug/net6.0/Deesix.Web.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}/ClientApp",
+            "sourceMaps": true,
+            "userDataDir": "${workspaceFolder}/.vscode/chrome",
+            "runtimeArgs": [
+                "--disable-extensions"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Full Stack",
+            "preLaunchTask": "Launch Backend and Frontend"
+        }
+    ],
+    "tasks": [
+        {
+            "label": "Launch Backend and Frontend",
+            "type": "shell",
+            "command": "npm run start --prefix ClientApp & dotnet run",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

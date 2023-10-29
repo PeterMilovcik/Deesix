@@ -1,0 +1,21 @@
+<ul role="menu-bar">
+    <li role="menu-item" tabindex="0" aria-haspopup="true">
+      User
+      <ul role="menu" *ngIf="isAuthenticated | async">
+        <li role="menu-item">
+            <a  [routerLink]='["/authentication/profile"]' title="Manage">Hello {{ userName | async }}</a>
+        </li>
+        <li role="menu-item">
+            <a  [routerLink]='["/authentication/logout"]' [state]='{ local: true }' title="Logout">Logout</a>
+        </li>
+    </ul>
+    <ul role="menu" *ngIf="(isAuthenticated | async) !== true">
+    <li role="menu-item">
+            <a [routerLink]='["/authentication/register"]'>Register</a>
+        </li>
+        <li role="menu-item">
+            <a [routerLink]='["/authentication/login"]'>Login</a>
+        </li>
+    </ul>
+    </li>
+  </ul>
