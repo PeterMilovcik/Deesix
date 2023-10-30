@@ -13,6 +13,7 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { NewGameComponent } from './new-game/new-game.component';
+import { GameService } from './services/game.service';
 
 @NgModule({
   declarations: [
