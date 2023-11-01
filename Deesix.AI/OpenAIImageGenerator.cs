@@ -2,11 +2,11 @@
 
 namespace Deesix.AI;
 
-public class ImageGenerator
+public class OpenAIImageGenerator
 {
     private string ApiKey { get; }
 
-    public ImageGenerator(string apiKey)
+    public OpenAIImageGenerator(string apiKey)
     {
         if (string.IsNullOrWhiteSpace(apiKey))
         {

@@ -19,7 +19,7 @@ public class GenerateImageTests
     public async Task GenerateImageAsync()
     {
         string prompt = "A serene beach with a setting sun";
-        string url = await new ImageGenerator(ApiKey).GenerateTemporalImageUrl(prompt);
+        string url = await new OpenAIImageGenerator(ApiKey).GenerateTemporalImageUrl(prompt);
         Assert.That(url, Is.Not.Null, "The generated url is null");
         Console.WriteLine($"Generated image url: {url}");
     }
