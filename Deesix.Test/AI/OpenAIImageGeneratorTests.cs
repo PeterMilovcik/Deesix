@@ -3,7 +3,7 @@
 namespace Deesix.Test.AI;
 
 [TestFixture]
-public class GenerateImageTests
+public class OpenAIImageGeneratorTests
 {
     private string ApiKey = string.Empty;
 
