@@ -25,26 +25,31 @@ describe('GameService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('NewGame method should return a non-null result', () => {
-    service.NewGame().subscribe(response => {
-      expect(response).not.toBeNull();
+  describe('NewGame', () => {
+
+    it('should return a non-null result', () => {
+      service.NewGame().subscribe(response => {
+        expect(response).not.toBeNull();
+      });
+
+      const req = httpMock.expectOne('/api/new-game');
+      expect(req.request.method).toBe('POST');
+      req.flush({}, { status: 200, statusText: 'OK' });
     });
 
-    const req = httpMock.expectOne('/api/new-game');
-    expect(req.request.method).toBe('POST');
-    req.flush({}, { status: 200, statusText: 'OK' });
-  });
+    it('should return a game with ID 1', () => {
+      const mockGame: Game = { id: 1 };
 
-  it('NewGame method should return a game with ID 1', () => {
-    const mockGame: Game = { id: 1 };
+      service.NewGame().subscribe(game => {
+        expect(game).not.toBeNull();
+        expect(game.id).toBe(1);
+      });
 
-    service.NewGame().subscribe(game => {
-      expect(game).not.toBeNull();
-      expect(game.id).toBe(1);
+      const req = httpMock.expectOne('/api/new-game');
+      expect(req.request.method).toBe('POST');
+      req.flush(mockGame, { status: 200, statusText: 'OK' });
     });
-
-    const req = httpMock.expectOne('/api/new-game');
-    expect(req.request.method).toBe('POST');
-    req.flush(mockGame, { status: 200, statusText: 'OK' });
+    
   });
+
 });

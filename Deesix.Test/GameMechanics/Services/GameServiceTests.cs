@@ -22,5 +22,6 @@ public class GameServiceTests : TestFixture
         Assert.That(result, Is.Not.Null, "Expected result object to not be null.");
         Assert.That(result, Is.InstanceOf<Game>(), $"Expected result object to be an instance of {typeof(Game)}.");
         Assert.That(result.Id, Is.Not.EqualTo(0), $"Expected {nameof(result.Id)} to not be 0.");
+        Assert.That(result.WorldSettings, Is.Not.Null, $"Expected {nameof(result.WorldSettings)} to not be null.");
     }
 }
