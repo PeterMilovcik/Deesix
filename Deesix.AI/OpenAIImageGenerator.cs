@@ -20,7 +20,7 @@ public class OpenAIImageGenerator
         ApiKey = apiKey;
     }
 
-    public async Task<string> GenerateTemporalImageUrl(string prompt)
+    public async Task<string> GenerateTemporalImageUrlAsync(string prompt)
     {
         var openAIClient = new OpenAIClient(new OpenAIAuthentication(ApiKey));
         var imageResult = await openAIClient.ImagesEndPoint.GenerateImageAsync(prompt, 1, OpenAI.Images.ImageSize.Small);        
