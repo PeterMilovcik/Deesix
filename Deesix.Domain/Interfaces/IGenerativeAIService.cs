@@ -1,6 +1,6 @@
 ﻿using Deesix.Domain.Entities;
 
-namespace Deesix.Domain;
+namespace Deesix.Domain.Interfaces;
 
 public interface IGenerativeAIService
 {

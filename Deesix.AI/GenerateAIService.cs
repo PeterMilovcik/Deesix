@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using Deesix.Domain;
+using Deesix.Domain.Interfaces;
 using Deesix.Domain.Entities;
 
 namespace Deesix.AI;

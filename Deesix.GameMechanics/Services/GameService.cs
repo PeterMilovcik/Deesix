@@ -6,15 +6,19 @@ namespace Deesix.GameMechanics.Services;
 public class GameService
 {
     private IGameRepository GameRepository { get; }
+    private IGenerativeAIService GenerativeAIService { get; }
 
-    public GameService(IGameRepository gameRepository)
+    public GameService(IGameRepository gameRepository, IGenerativeAIService generativeAIService)
     {
-        GameRepository = gameRepository;
+        GameRepository = gameRepository ?? throw new ArgumentNullException(nameof(gameRepository));
+        GenerativeAIService = generativeAIService ?? throw new ArgumentNullException(nameof(generativeAIService));
     }
 
-    public Game NewGame()
+    public async Task<Game> NewGameAsync()
     {
         var newGame = new Game();
+        var newWorldSettings = await GenerativeAIService.GenerateWorldSettingsAsync();
+        newGame.WorldSettings = newWorldSettings;
         return GameRepository.CreateGame(newGame);
     }
 }

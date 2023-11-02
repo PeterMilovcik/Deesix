@@ -20,16 +20,15 @@ public class GameController : ControllerBase
     }
 
     [HttpPost("new-game")]
-    public ActionResult<Game> NewGame()
+    public async Task<ActionResult<Game>> NewGameAsync()
     {
         try
         {
-            var newGame = GameService.NewGame();
+            var newGame = await GameService.NewGameAsync();
             return Ok(newGame);
         }
         catch (Exception ex)
         {
-            // Handle exceptions
             return BadRequest(ex.Message);
         }
     }

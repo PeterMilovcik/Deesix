@@ -17,9 +17,9 @@ public class GameControllerTests : TestFixture
     }
 
     [Test]
-    public void NewGameReturnsGameResult()
+    public async Task NewGameReturnsGameResult()
     {
-        var result = GameController.NewGame();
+        var result = await GameController.NewGameAsync();
         Assert.That(result, Is.Not.Null, "Expected result object to not be null.");
         Assert.That(result.Result, Is.InstanceOf<OkObjectResult>(), $"Expected result object to be an instance of {typeof(OkObjectResult)}.");
         var okResult = result.Result as OkObjectResult;
