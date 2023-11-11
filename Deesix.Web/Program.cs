@@ -23,7 +23,8 @@ namespace Deesix.Web
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>()
+                .AddDeveloperSigningCredential();
 
             builder.Services.AddAuthentication()
                 .AddIdentityServerJwt();
