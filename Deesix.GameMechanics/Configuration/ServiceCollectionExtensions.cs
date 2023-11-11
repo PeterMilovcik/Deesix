@@ -1,7 +1,7 @@
 ﻿using Deesix.GameMechanics.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Deesix.GameMechanics;
+namespace Deesix.GameMechanics.Configuration;
 
 public static class ServiceCollectionExtensions
 {

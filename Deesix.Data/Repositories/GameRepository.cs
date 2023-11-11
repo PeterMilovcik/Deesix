@@ -7,6 +7,6 @@ public class GameRepository : IGameRepository
 {
     public Game CreateGame(Game game)
     {
-        throw new NotImplementedException();
+        return game;
     }
 }

@@ -5,7 +5,7 @@ using Deesix.Domain.Entities;
 
 namespace Deesix.Web.Controllers;
 
-[Authorize]
+//[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class GameController : ControllerBase

@@ -46,14 +46,15 @@ public class GenerativeAIService : IGenerativeAIService
             };
             var themesString = string.Join(", ", themes);
 
-            string systemPrompt = 
+            var systemPrompt = 
                 $"You are an AI tasked with creating a unique setting for a role-playing game " + 
                 $"based on the following schema: {schemaJson}. " + 
+                "The description for world should be max. 300 characters long." +
                 $"The theme should be chosen from the following list: {themesString}.";
-            string userPrompt = 
+            var userPrompt = 
                 "Generate a world setting in a JSON format conforming to the provided schema.";
             
-            string generatedJson = await OpenAITextGenerator.GenerateTextAsync(systemPrompt, userPrompt);
+            var generatedJson = await OpenAITextGenerator.GenerateTextAsync(systemPrompt, userPrompt);
             
             WorldSettings worldSettings = JsonSerializer.Deserialize<WorldSettings>(generatedJson);
             
@@ -61,7 +62,15 @@ public class GenerativeAIService : IGenerativeAIService
             {
                 throw new InvalidOperationException("Deserialization to WorldSettings object failed, resulting in a null instance.");
             }
+
+            var imagePrompt = $"Create image that represents the RPG game world " + 
+                $"called \"{worldSettings.Name}\" " + 
+                $"described as \"{worldSettings.Description}\" "+
+                $"with theme: \"{worldSettings.Theme}\".";
+            var imageUrl = await OpenAIImageGenerator.GenerateTemporalImageUrlAsync(imagePrompt);
             
+            worldSettings.ImageUrl = imageUrl;
+
             return worldSettings;
         }
         catch (JsonException jsonEx)

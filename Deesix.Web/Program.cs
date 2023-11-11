@@ -1,8 +1,9 @@
+using Deesix.AI.Configuration;
+using Deesix.GameMechanics.Configuration;
+using Deesix.Data.Configuration;
 using Deesix.Web.Data;
 using Deesix.Web.Models;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 
 namespace Deesix.Web
@@ -32,12 +33,26 @@ namespace Deesix.Web
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
 
+            // Add CORS policy
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader());
+            });
+
+            builder.Services.AddAIServices();
+            builder.Services.AddGameMechanicsServices();
+            builder.Services.AddDataServices();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();
+                app.UseCors("AllowAll");
             }
             else
             {

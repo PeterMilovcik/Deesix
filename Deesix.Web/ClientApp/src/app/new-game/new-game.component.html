@@ -11,29 +11,37 @@
       <h1 class="title">{{ title }}</h1>
     </div>
     <div class="separator"></div>
-    <div class="window-pane">
-      <form>
-        <div class="form-group">
-          <label for="worldName">World Name:</label>
-            <textarea id="worldName" name="worldName" [(ngModel)]="worldSettings.name" class="form-control" rows="1"></textarea>
-        </div>
     
-        <div class="form-group">
-          <label for="description">Description:</label>
-            <textarea id="description" name="description" [(ngModel)]="worldSettings.description" class="form-control" rows="5"></textarea>
+    <div class="row my-4">
+      <div class="col-md-4 d-flex align-items-center justify-content-center">
+        <img [src]="worldSettings.imageUrl" alt="placeholder image">
+      </div>
+      <div class="col-md-8">
+        <div class="window-pane" style="padding: 0 20px;">
+          <form>
+            <div class="form-group">
+              <label for="worldName">World Name:</label>
+                <textarea id="worldName" name="worldName" [(ngModel)]="worldSettings.name" class="form-control" rows="1"></textarea>
+            </div>
+        
+            <div class="form-group">
+              <label for="description">Description:</label>
+                <textarea id="description" name="description" [(ngModel)]="worldSettings.description" class="form-control" rows="6"></textarea>
+            </div>
+        
+            <div class="form-group">
+              <label for="theme">Theme:</label>
+                <textarea id="theme" name="theme" class="form-control" rows="1">{{ worldSettings.theme }}</textarea>
+            </div>
+          </form>
         </div>
-    
-        <div class="form-group">
-          <label for="theme">Theme:</label>
-          <select id="theme" name="theme" [(ngModel)]="worldSettings.theme" class="form-control">
-            <option *ngFor="let theme of themes" [value]="theme">{{ theme }}</option>
-          </select>
-        </div>
-      </form>
+      </div>
     </div>
+
     <div class="separator"></div>
     <div class="window-pane">
-      <button id="continue" class="btn btn-default" routerLink="/continue">Continue</button>
+      <button id="randomize-world" class="btn btn-default" (click)="RandomizeWorldSettings()" style="margin-right: 10px;">Randomize</button>
+      <button id="create-world" class="btn btn-default" routerLink="/create-world">Create</button>
     </div>
   </div>
 </body>

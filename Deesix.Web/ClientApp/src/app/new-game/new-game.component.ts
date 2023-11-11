@@ -11,8 +11,12 @@ import { WorldSettings } from '../models/world-settings.model';
 export class NewGameComponent implements OnInit {
   game: Game | undefined;
   title: string = 'World Settings';
-  themes: string[] = ['High Fantasy', 'Medieval', 'Steampunk', 'Cyberpunk', 'Space Opera', 'Post-Apocalyptic', 'Urban Fantasy', 'Western', 'Desert', 'Kingdoms', 'Eastern Mythology', 'Nordic Mythology'];
-  worldSettings: WorldSettings = { theme: 'High Fantasy', name: 'Eldoria', description: 'Eldoria is a realm where magic flows as freely as the rivers, and mystical creatures roam the enchanted forests. Towering castles and intricate citadels dot the landscape, serving as a testament to the intricate balance of magic and might. Here, heroes forge their destinies and villains seek to disrupt the cosmic equilibrium. Eldoria beckons all who dare to tread its mystical paths.' };
+  worldSettings: WorldSettings = { 
+    theme: 'High Fantasy', 
+    name: 'Eldoria', 
+    description: 'Eldoria is a realm where magic flows as freely as the rivers, and mystical creatures roam the enchanted forests. Towering castles and intricate citadels dot the landscape, serving as a testament to the intricate balance of magic and might. Here, heroes forge their destinies and villains seek to disrupt the cosmic equilibrium. Eldoria beckons all who dare to tread its mystical paths.',
+    imageUrl: "https://via.placeholder.com/256" 
+  };
 
   constructor(private gameService: GameService) { }
 
@@ -20,6 +24,17 @@ export class NewGameComponent implements OnInit {
     this.gameService.NewGame().subscribe({
       next: game => {
         this.game = game;
+      },
+      error: error => {
+        console.error('Something went wrong', error);
+      }
+    });
+  }
+
+  RandomizeWorldSettings() {
+    this.gameService.GetRandomizedWorldSettings().subscribe({
+      next: newWorldSettings => {
+        this.worldSettings = newWorldSettings;
       },
       error: error => {
         console.error('Something went wrong', error);
