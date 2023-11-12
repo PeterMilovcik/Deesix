@@ -12,31 +12,38 @@
     </div>
     <div class="separator"></div>
     
-    <div class="row my-4">
-      <div class="col-md-4 d-flex align-items-center justify-content-center">
-        <img [src]="worldSettings.imageUrl" alt="placeholder image">
-      </div>
-      <div class="col-md-8">
-        <div class="window-pane" style="padding: 0 20px;">
-          <form>
-            <div class="form-group">
-              <label for="worldName">World Name:</label>
-                <textarea id="worldName" name="worldName" [(ngModel)]="worldSettings.name" class="form-control" rows="1"></textarea>
-            </div>
-        
-            <div class="form-group">
-              <label for="description">Description:</label>
-                <textarea id="description" name="description" [(ngModel)]="worldSettings.description" class="form-control" rows="6"></textarea>
-            </div>
-        
-            <div class="form-group">
-              <label for="theme">Theme:</label>
-                <textarea id="theme" name="theme" class="form-control" rows="1">{{ worldSettings.theme }}</textarea>
-            </div>
-          </form>
+    <ng-container *ngIf="!isGenerating; else generating">
+      <div class="row my-4">
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+          <img [src]="worldSettings.imageUrl" alt="placeholder image">
+        </div>
+        <div class="col-md-8">
+          <div class="window-pane" style="padding: 0 20px;">
+              <form>
+                <div class="form-group">
+                  <label for="worldName">World Name:</label>
+                    <textarea id="worldName" name="worldName" [(ngModel)]="worldSettings.name" class="form-control" rows="1"></textarea>
+                </div>
+            
+                <div class="form-group">
+                  <label for="description">Description:</label>
+                    <textarea id="description" name="description" [(ngModel)]="worldSettings.description" class="form-control" rows="6"></textarea>
+                </div>
+            
+                <div class="form-group">
+                  <label for="theme">Theme:</label>
+                    <textarea id="theme" name="theme" class="form-control" rows="1">{{ worldSettings.theme }}</textarea>
+                </div>
+              </form>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
+    <ng-template #generating>
+      <div class="d-flex align-items-center justify-content-center my-4" style="height: 100%;">
+        <h3>Generating world settings, please wait...</h3>
+      </div>
+    </ng-template>
 
     <div class="separator"></div>
     <div class="window-pane">

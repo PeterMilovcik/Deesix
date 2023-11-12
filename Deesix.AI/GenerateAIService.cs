@@ -30,33 +30,20 @@ public class GenerativeAIService : IGenerativeAIService
         {
             string schemaJson = SchemaGenerator.GenerateSchema<WorldSettings>();
 
-            var themes = new List<string>
-            {
-                "High Fantasy",
-                "Medieval",
-                "Steampunk",
-                "Cyberpunk",
-                "Space Opera",
-                "Post-Apocalyptic",
-                "Urban Fantasy",
-                "Western",
-                "Desert Kingdoms",
-                "Eastern Mythology",
-                "Nordic Mythology"
-            };
-            var themesString = string.Join(", ", themes);
-
             var systemPrompt = 
                 $"You are an AI tasked with creating a unique setting for a role-playing game " + 
-                $"based on the following schema: {schemaJson}. " + 
-                "The description for world should be max. 300 characters long." +
-                $"The theme should be chosen from the following list: {themesString}.";
+                $"based on the following JSON: {schemaJson}. " +
+                "Description should be max. 300 characters long. " +
+                "Theme should be one of the following: High Fantasy, Medieval, Steampunk, Cyberpunk, Space Opera, Post-Apocalyptic, Urban Fantasy, Western, Desert Kingdoms, Eastern Mythology, Nordic Mythology. ";
+
             var userPrompt = 
-                "Generate a world setting in a JSON format conforming to the provided schema.";
+                "Generate a world setting in a JSON format conforming to the provided schema. Be creative!";
             
             var generatedJson = await OpenAITextGenerator.GenerateTextAsync(systemPrompt, userPrompt);
+
+            Console.WriteLine($"Generated json: {generatedJson}");
             
-            WorldSettings worldSettings = JsonSerializer.Deserialize<WorldSettings>(generatedJson);
+            var worldSettings = JsonSerializer.Deserialize<WorldSettings>(generatedJson);
             
             if (worldSettings == null)
             {
@@ -70,6 +57,8 @@ public class GenerativeAIService : IGenerativeAIService
             var imageUrl = await OpenAIImageGenerator.GenerateTemporalImageUrlAsync(imagePrompt);
             
             worldSettings.ImageUrl = imageUrl;
+
+            Console.WriteLine($"Generated world settings: {worldSettings}");
 
             return worldSettings;
         }
