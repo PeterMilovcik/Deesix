@@ -15,7 +15,9 @@ export class NewGameComponent implements OnInit {
     theme: 'High Fantasy', 
     name: 'Eldoria', 
     description: 'Eldoria is a realm where magic flows as freely as the rivers, and mystical creatures roam the enchanted forests. Towering castles and intricate citadels dot the landscape, serving as a testament to the intricate balance of magic and might. Here, heroes forge their destinies and villains seek to disrupt the cosmic equilibrium. Eldoria beckons all who dare to tread its mystical paths.',
-    imageUrl: "https://via.placeholder.com/256" 
+    imageUrl: "https://via.placeholder.com/256",
+    seed: 1337,
+    regions: 50,
   };
   
   isGenerating: boolean = false;

@@ -3,4 +3,6 @@ export interface WorldSettings {
     description: string;
     theme: string;
     imageUrl: string;
+    seed:number;
+    regions: number;
 }

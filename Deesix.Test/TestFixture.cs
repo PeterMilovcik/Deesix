@@ -1,4 +1,4 @@
-using Deesix.GameMechanics;
+using Deesix.GameMechanics.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Deesix.Test;

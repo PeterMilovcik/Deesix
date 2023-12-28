@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Deesix.Web.Controllers;
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class WorldSettingsController : ControllerBase
