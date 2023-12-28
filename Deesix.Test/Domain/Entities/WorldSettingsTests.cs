@@ -36,7 +36,7 @@ public class WorldSettingsTests
             Theme = "Fantasy"
         };
 
-        string expected = "Id: 1, GameId: 2, Name: Test World, Description: A world for testing, Theme: Fantasy, ImageUrl: https://via.placeholder.com/256";
+        string expected = "Id: 1, GameId: 2, Name: Test World, Description: A world for testing, Theme: Fantasy, ImageUrl: https://via.placeholder.com/256, Seed: 0, Regions: 0";
         Assert.That(worldSettings.ToString(), Is.EqualTo(expected), "ToString method did not return the correct string.");
     }
 
